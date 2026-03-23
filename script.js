@@ -155,6 +155,8 @@
      6. Contact form — client-side validation & submission UX
   --------------------------------------------------------------- */
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const CONTACT_EMAIL = 'light.security1@gmail.com';
+  const CONTACT_SUBJECT = 'New Consultation Request - Light Security';
 
   const form        = document.getElementById('contact-form');
   const submitBtn   = form ? form.querySelector('button[type="submit"]') : null;
@@ -222,6 +224,38 @@
     field.addEventListener('change', function () { clearError(fieldId); });
   });
 
+  function sendContactEmail() {
+    var nameEl = document.getElementById('name');
+    var emailEl = document.getElementById('email');
+    var companyEl = document.getElementById('company');
+    var industryEl = document.getElementById('industry');
+    var messageEl = document.getElementById('message');
+    var requiredFieldsPresent = nameEl && emailEl && companyEl && industryEl;
+
+    if (!requiredFieldsPresent) {
+      return false;
+    }
+
+    var industryText = '';
+    if (industryEl && industryEl.selectedIndex >= 0 && industryEl.options[industryEl.selectedIndex]) {
+      industryText = industryEl.options[industryEl.selectedIndex].text;
+    }
+
+    var subject = encodeURIComponent(CONTACT_SUBJECT);
+    var body = encodeURIComponent([
+      'Name: ' + nameEl.value.trim(),
+      'Work Email: ' + emailEl.value.trim(),
+      'Company: ' + companyEl.value.trim(),
+      'Industry: ' + industryText,
+      '',
+      'Biggest Security Concern:',
+      messageEl && messageEl.value ? messageEl.value.trim() : 'N/A'
+    ].join('\n'));
+
+    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+    return true;
+  }
+
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -232,33 +266,28 @@
       if (submitBtn)  submitBtn.disabled = true;
       if (submitText) submitText.textContent = 'Sending…';
       if (spinner)    spinner.classList.remove('hidden');
+      var errorBanner = document.getElementById('form-submit-error');
+      if (errorBanner) errorBanner.classList.add('hidden');
 
-      // Replace the setTimeout below with a real fetch/API call.
-      // Error handling UI (re-enable button, show error banner) is already
-      // wired up in the catch block so the integration is drop-in ready.
-      var submissionPromise = new Promise(function (resolve) {
-        setTimeout(resolve, 1400);
-      });
+      var emailDraftOpened = sendContactEmail();
 
-      submissionPromise
-        .then(function () {
-          // Show success message
-          if (successMsg) {
-            successMsg.classList.remove('hidden');
-            form.reset();
-            successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-        })
-        .catch(function () {
-          // Surface a generic error so the user knows to try again
-          var errorBanner = document.getElementById('form-submit-error');
-          if (errorBanner) errorBanner.classList.remove('hidden');
-        })
-        .finally(function () {
-          if (submitBtn)  submitBtn.disabled = false;
-          if (submitText) submitText.textContent = 'Schedule My Free Strategy Call';
-          if (spinner)    spinner.classList.add('hidden');
-        });
+      if (!emailDraftOpened) {
+        if (errorBanner) errorBanner.classList.remove('hidden');
+        if (submitBtn)  submitBtn.disabled = false;
+        if (submitText) submitText.textContent = 'Schedule My Free Strategy Call';
+        if (spinner)    spinner.classList.add('hidden');
+        return;
+      }
+
+      // Show confirmation that email compose was opened
+      if (successMsg) {
+        successMsg.classList.remove('hidden');
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      if (submitBtn)  submitBtn.disabled = false;
+      if (submitText) submitText.textContent = 'Schedule My Free Strategy Call';
+      if (spinner)    spinner.classList.add('hidden');
     });
   }
 

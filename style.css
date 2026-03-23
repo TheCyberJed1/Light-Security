@@ -217,20 +217,16 @@ ul { list-style: none; }
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
   flex-shrink: 0;
 }
 
-.logo-shield { display: flex; }
-
-.logo-text {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--white);
+.nav-logo-image {
+  display: block;
+  width: 152px;
+  height: auto;
+  max-height: 56px;
+  object-fit: contain;
 }
-
-.logo-accent { color: var(--blue-500); }
 
 .nav-links {
   display: flex;
