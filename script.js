@@ -155,6 +155,8 @@
      6. Contact form — client-side validation & submission UX
   --------------------------------------------------------------- */
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const CONTACT_EMAIL = 'light.security1@gmail.com';
+  const CONTACT_SUBJECT = 'New Consultation Request - Light Security';
 
   const form        = document.getElementById('contact-form');
   const submitBtn   = form ? form.querySelector('button[type="submit"]') : null;
@@ -239,7 +241,7 @@
       industryText = industryEl.options[industryEl.selectedIndex].text;
     }
 
-    var subject = encodeURIComponent('New Consultation Request - Light Security');
+    var subject = encodeURIComponent(CONTACT_SUBJECT);
     var body = encodeURIComponent([
       'Name: ' + nameEl.value.trim(),
       'Work Email: ' + emailEl.value.trim(),
@@ -250,7 +252,7 @@
       messageEl && messageEl.value ? messageEl.value.trim() : 'N/A'
     ].join('\n'));
 
-    window.location.href = 'mailto:light.security1@gmail.com?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
     return true;
   }
 
