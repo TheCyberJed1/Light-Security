@@ -229,19 +229,23 @@
     var industryEl = document.getElementById('industry');
     var messageEl = document.getElementById('message');
 
+    var industryText = '';
+    if (industryEl && industryEl.selectedIndex >= 0 && industryEl.options[industryEl.selectedIndex]) {
+      industryText = industryEl.options[industryEl.selectedIndex].text;
+    }
+
     var subject = encodeURIComponent('New Consultation Request - Light Security');
     var body = encodeURIComponent([
       'Name: ' + (nameEl ? nameEl.value.trim() : ''),
       'Work Email: ' + (emailEl ? emailEl.value.trim() : ''),
       'Company: ' + (companyEl ? companyEl.value.trim() : ''),
-      'Industry: ' + (industryEl ? industryEl.options[industryEl.selectedIndex].text : ''),
+      'Industry: ' + industryText,
       '',
       'Biggest Security Concern:',
       messageEl && messageEl.value ? messageEl.value.trim() : 'N/A'
     ].join('\n'));
 
     window.location.href = 'mailto:light.security1@gmail.com?subject=' + subject + '&body=' + body;
-    return Promise.resolve();
   }
 
   if (form) {
@@ -255,25 +259,18 @@
       if (submitText) submitText.textContent = 'Sending…';
       if (spinner)    spinner.classList.remove('hidden');
 
-      sendContactEmail()
-        .then(function () {
-          // Show success message
-          if (successMsg) {
-            successMsg.classList.remove('hidden');
-            form.reset();
-            successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-        })
-        .catch(function () {
-          // Surface a generic error so the user knows to try again
-          var errorBanner = document.getElementById('form-submit-error');
-          if (errorBanner) errorBanner.classList.remove('hidden');
-        })
-        .finally(function () {
-          if (submitBtn)  submitBtn.disabled = false;
-          if (submitText) submitText.textContent = 'Schedule My Free Strategy Call';
-          if (spinner)    spinner.classList.add('hidden');
-        });
+      sendContactEmail();
+
+      // Show confirmation that email compose was opened
+      if (successMsg) {
+        successMsg.classList.remove('hidden');
+        form.reset();
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      if (submitBtn)  submitBtn.disabled = false;
+      if (submitText) submitText.textContent = 'Schedule My Free Strategy Call';
+      if (spinner)    spinner.classList.add('hidden');
     });
   }
 
