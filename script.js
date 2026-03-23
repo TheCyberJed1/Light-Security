@@ -233,11 +233,28 @@
       if (submitText) submitText.textContent = 'Sending…';
       if (spinner)    spinner.classList.remove('hidden');
 
-      // Replace the setTimeout below with a real fetch/API call.
-      // Error handling UI (re-enable button, show error banner) is already
-      // wired up in the catch block so the integration is drop-in ready.
-      var submissionPromise = new Promise(function (resolve) {
-        setTimeout(resolve, 1400);
+      var nameValue = (document.getElementById('name') || { value: '' }).value.trim();
+      var emailValue = (document.getElementById('email') || { value: '' }).value.trim();
+      var companyValue = (document.getElementById('company') || { value: '' }).value.trim();
+      var industryField = document.getElementById('industry');
+      var industryValue = '';
+      if (industryField && industryField.selectedIndex >= 0) {
+        var selectedOption = industryField.options[industryField.selectedIndex];
+        industryValue = selectedOption ? selectedOption.text : industryField.value;
+      }
+      var messageValue = (document.getElementById('message') || { value: '' }).value.trim();
+
+      var subject = encodeURIComponent('New consultation request from ' + nameValue);
+      var body = encodeURIComponent(
+        'Name: ' + nameValue + '\n' +
+        'Work Email: ' + emailValue + '\n' +
+        'Company: ' + companyValue + '\n' +
+        'Industry: ' + industryValue + '\n\n' +
+        'Security Concern:\n' + (messageValue || 'Not provided')
+      );
+      var mailtoUrl = 'mailto:light.security1@gmail.com?subject=' + subject + '&body=' + body;
+      var submissionPromise = Promise.resolve().then(function () {
+        window.location.href = mailtoUrl;
       });
 
       submissionPromise
