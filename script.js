@@ -222,6 +222,28 @@
     field.addEventListener('change', function () { clearError(fieldId); });
   });
 
+  function sendContactEmail() {
+    var nameEl = document.getElementById('name');
+    var emailEl = document.getElementById('email');
+    var companyEl = document.getElementById('company');
+    var industryEl = document.getElementById('industry');
+    var messageEl = document.getElementById('message');
+
+    var subject = encodeURIComponent('New Consultation Request - Light Security');
+    var body = encodeURIComponent([
+      'Name: ' + (nameEl ? nameEl.value.trim() : ''),
+      'Work Email: ' + (emailEl ? emailEl.value.trim() : ''),
+      'Company: ' + (companyEl ? companyEl.value.trim() : ''),
+      'Industry: ' + (industryEl ? industryEl.options[industryEl.selectedIndex].text : ''),
+      '',
+      'Biggest Security Concern:',
+      messageEl && messageEl.value ? messageEl.value.trim() : 'N/A'
+    ].join('\n'));
+
+    window.location.href = 'mailto:light.security1@gmail.com?subject=' + subject + '&body=' + body;
+    return Promise.resolve();
+  }
+
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -233,14 +255,7 @@
       if (submitText) submitText.textContent = 'Sending…';
       if (spinner)    spinner.classList.remove('hidden');
 
-      // Replace the setTimeout below with a real fetch/API call.
-      // Error handling UI (re-enable button, show error banner) is already
-      // wired up in the catch block so the integration is drop-in ready.
-      var submissionPromise = new Promise(function (resolve) {
-        setTimeout(resolve, 1400);
-      });
-
-      submissionPromise
+      sendContactEmail()
         .then(function () {
           // Show success message
           if (successMsg) {
