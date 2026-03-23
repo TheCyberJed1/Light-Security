@@ -228,6 +228,11 @@
     var companyEl = document.getElementById('company');
     var industryEl = document.getElementById('industry');
     var messageEl = document.getElementById('message');
+    var requiredFieldsPresent = nameEl && emailEl && companyEl && industryEl;
+
+    if (!requiredFieldsPresent) {
+      return false;
+    }
 
     var industryText = '';
     if (industryEl && industryEl.selectedIndex >= 0 && industryEl.options[industryEl.selectedIndex]) {
@@ -236,9 +241,9 @@
 
     var subject = encodeURIComponent('New Consultation Request - Light Security');
     var body = encodeURIComponent([
-      'Name: ' + (nameEl ? nameEl.value.trim() : ''),
-      'Work Email: ' + (emailEl ? emailEl.value.trim() : ''),
-      'Company: ' + (companyEl ? companyEl.value.trim() : ''),
+      'Name: ' + nameEl.value.trim(),
+      'Work Email: ' + emailEl.value.trim(),
+      'Company: ' + companyEl.value.trim(),
       'Industry: ' + industryText,
       '',
       'Biggest Security Concern:',
@@ -246,6 +251,7 @@
     ].join('\n'));
 
     window.location.href = 'mailto:light.security1@gmail.com?subject=' + subject + '&body=' + body;
+    return true;
   }
 
   if (form) {
@@ -258,13 +264,22 @@
       if (submitBtn)  submitBtn.disabled = true;
       if (submitText) submitText.textContent = 'Sending…';
       if (spinner)    spinner.classList.remove('hidden');
+      var errorBanner = document.getElementById('form-submit-error');
+      if (errorBanner) errorBanner.classList.add('hidden');
 
-      sendContactEmail();
+      var emailDraftOpened = sendContactEmail();
+
+      if (!emailDraftOpened) {
+        if (errorBanner) errorBanner.classList.remove('hidden');
+        if (submitBtn)  submitBtn.disabled = false;
+        if (submitText) submitText.textContent = 'Schedule My Free Strategy Call';
+        if (spinner)    spinner.classList.add('hidden');
+        return;
+      }
 
       // Show confirmation that email compose was opened
       if (successMsg) {
         successMsg.classList.remove('hidden');
-        form.reset();
         successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
 
