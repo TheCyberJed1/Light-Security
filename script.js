@@ -155,12 +155,28 @@
      6. Contact form — client-side validation & submission UX
   --------------------------------------------------------------- */
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const MAILTO_MAX_URL_LENGTH = 1900;
 
   const form        = document.getElementById('contact-form');
   const submitBtn   = form ? form.querySelector('button[type="submit"]') : null;
   const submitText  = document.getElementById('submit-text');
   const spinner     = document.getElementById('submit-spinner');
   const successMsg  = document.getElementById('form-success');
+
+  function sanitizeSingleLine(value) {
+    return String(value || '')
+      .replace(/[\r\n]+/g, ' ')
+      .replace(/[\u0000-\u001F\u007F]+/g, ' ')
+      .trim();
+  }
+
+  function sanitizeMultiline(value) {
+    return String(value || '')
+      .replace(/\r\n?/g, '\n')
+      .replace(/[^\S\n]+/g, ' ')
+      .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]+/g, '')
+      .trim();
+  }
 
   function showError(fieldId, message) {
     const field = document.getElementById(fieldId);
@@ -233,17 +249,49 @@
       if (submitText) submitText.textContent = 'Sending…';
       if (spinner)    spinner.classList.remove('hidden');
 
-      // Replace the setTimeout below with a real fetch/API call.
-      // Error handling UI (re-enable button, show error banner) is already
-      // wired up in the catch block so the integration is drop-in ready.
-      var submissionPromise = new Promise(function (resolve) {
-        setTimeout(resolve, 1400);
+      var nameValue = sanitizeSingleLine((document.getElementById('name') || { value: '' }).value);
+      var emailValue = sanitizeSingleLine((document.getElementById('email') || { value: '' }).value);
+      var companyValue = sanitizeSingleLine((document.getElementById('company') || { value: '' }).value);
+      var industryField = document.getElementById('industry');
+      var industryValue = '';
+      if (industryField && industryField.selectedIndex >= 0) {
+        var selectedOption = industryField.options[industryField.selectedIndex];
+        industryValue = sanitizeSingleLine(selectedOption ? selectedOption.text : industryField.value);
+      }
+      var messageValue = sanitizeMultiline((document.getElementById('message') || { value: '' }).value);
+
+      var subject = encodeURIComponent('New consultation request from ' + nameValue);
+      var body = encodeURIComponent(
+        'Name: ' + nameValue + '\n' +
+        'Work Email: ' + emailValue + '\n' +
+        'Company: ' + companyValue + '\n' +
+        'Industry: ' + industryValue + '\n\n' +
+        'Security Concern:\n' + (messageValue || 'Not provided')
+      );
+      var mailtoUrl = 'mailto:light.security1@gmail.com?subject=' + subject + '&body=' + body;
+      if (mailtoUrl.length > MAILTO_MAX_URL_LENGTH) {
+        var tooLongError = document.getElementById('form-submit-error');
+        if (tooLongError) {
+          var tooLongErrorHeading = tooLongError.querySelector('strong');
+          if (tooLongErrorHeading) tooLongErrorHeading.textContent = 'Your message is too long. Please shorten it and try again.';
+          tooLongError.classList.remove('hidden');
+        }
+        if (submitBtn)  submitBtn.disabled = false;
+        if (submitText) submitText.textContent = 'Schedule My Free Strategy Call';
+        if (spinner)    spinner.classList.add('hidden');
+        return;
+      }
+      var submissionPromise = Promise.resolve().then(function () {
+        window.location.href = mailtoUrl;
       });
 
       submissionPromise
         .then(function () {
-          // Show success message
           if (successMsg) {
+            var successHeading = successMsg.querySelector('strong');
+            var successBody = successMsg.querySelector('p');
+            if (successHeading) successHeading.textContent = 'Your email app should open with a pre-filled draft.';
+            if (successBody) successBody.textContent = 'Please send the draft to complete your request.';
             successMsg.classList.remove('hidden');
             form.reset();
             successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -252,7 +300,11 @@
         .catch(function () {
           // Surface a generic error so the user knows to try again
           var errorBanner = document.getElementById('form-submit-error');
-          if (errorBanner) errorBanner.classList.remove('hidden');
+          if (errorBanner) {
+            var errorBannerHeading = errorBanner.querySelector('strong');
+            if (errorBannerHeading) errorBannerHeading.textContent = 'Something went wrong. Please try again or email us directly.';
+            errorBanner.classList.remove('hidden');
+          }
         })
         .finally(function () {
           if (submitBtn)  submitBtn.disabled = false;
