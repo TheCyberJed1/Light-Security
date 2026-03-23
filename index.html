@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Light Security — Penetration Testing &amp; Cybersecurity for SMBs</title>
+  <meta name="description" content="Expert penetration testing and vulnerability assessments for medical practices, financial firms, and SMBs in Southwest Florida. HIPAA, FINRA, PCI-DSS compliance specialists." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================= -->
+  <header class="nav-header" id="nav-header">
+    <div class="container nav-inner">
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo" aria-label="Light Security Home">
+        <span class="logo-shield" aria-hidden="true">
+          <svg width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0L0 6v12c0 9.94 6.84 19.24 16 22 9.16-2.76 16-12.06 16-22V6L16 0z" fill="#2563EB"/>
+            <path d="M9 18l4.5 4.5L23 13" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="logo-text">Light<span class="logo-accent">Security</span></span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#services">Services</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <a href="#contact" class="btn btn-primary nav-cta">Request a Free Consultation</a>
+
+      <!-- Mobile hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav aria-label="Mobile Navigation">
+        <a href="#services">Services</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary">Request a Free Consultation</a>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO SECTION
+  ========================================================= -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-mesh" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Southwest Florida's Trusted Security Partners</div>
+        <h1 class="hero-headline">
+          Secure Your Business.<br/>
+          Meet Compliance.<br/>
+          <span class="hero-headline-accent">Protect Your Reputation.</span>
+        </h1>
+        <p class="hero-sub">
+          Expert penetration testing and vulnerability assessments for medical practices,
+          financial firms, and SMBs. We find the security gaps <em>before</em> the bad guys do.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary btn-lg">Schedule a Security Strategy Call</a>
+          <a href="#services" class="btn btn-ghost btn-lg">Explore Our Services</a>
+        </div>
+        <div class="hero-social-proof">
+          <span class="dot dot-green" aria-hidden="true"></span>
+          Currently accepting new clients in Southwest Florida
+        </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="shield-graphic">
+          <svg viewBox="0 0 220 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Outer glow ring -->
+            <ellipse cx="110" cy="200" rx="80" ry="12" fill="#2563EB" fill-opacity="0.15"/>
+            <!-- Shield body -->
+            <path d="M110 8L18 44v60c0 57 38.8 110 92 127 53.2-17 92-70 92-127V44L110 8z" fill="#0F172A" stroke="#2563EB" stroke-width="2.5"/>
+            <!-- Shield inner fill -->
+            <path d="M110 28L36 58v46c0 46.4 31.2 89.6 74 102 42.8-12.4 74-55.6 74-102V58L110 28z" fill="#1E293B"/>
+            <!-- Checkmark -->
+            <path d="M74 120l22 22 50-50" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Pulse rings -->
+            <circle cx="110" cy="120" r="50" stroke="#2563EB" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 4"/>
+            <circle cx="110" cy="120" r="68" stroke="#2563EB" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4 4"/>
+          </svg>
+
+          <!-- Floating nodes -->
+          <div class="node node-1">
+            <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="#1E293B" stroke="#2563EB" stroke-width="1.5"/><path d="M13 20h14M20 13v14" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>Network Scan</span>
+          </div>
+          <div class="node node-2">
+            <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="#1E293B" stroke="#10B981" stroke-width="1.5"/><path d="M14 20l4 4 8-8" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Threat Cleared</span>
+          </div>
+          <div class="node node-3">
+            <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5"/><path d="M20 13v9l5 3" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>Report Ready</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <a href="#compliance" class="scroll-cue" aria-label="Scroll down">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <!-- =========================================================
+       COMPLIANCE / TRUST BAR
+  ========================================================= -->
+  <section class="compliance-bar" id="compliance" aria-label="Compliance Standards We Support">
+    <div class="container compliance-inner">
+      <span class="compliance-label">We help you meet:</span>
+      <div class="compliance-badges">
+        <div class="badge-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2L2 5.5v5c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11v-5L10 2z" fill="#2563EB" fill-opacity="0.2" stroke="#2563EB" stroke-width="1.5"/></svg>
+          HIPAA
+        </div>
+        <div class="badge-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2L2 5.5v5c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11v-5L10 2z" fill="#2563EB" fill-opacity="0.2" stroke="#2563EB" stroke-width="1.5"/></svg>
+          FINRA
+        </div>
+        <div class="badge-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2L2 5.5v5c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11v-5L10 2z" fill="#2563EB" fill-opacity="0.2" stroke="#2563EB" stroke-width="1.5"/></svg>
+          SEC
+        </div>
+        <div class="badge-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2L2 5.5v5c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11v-5L10 2z" fill="#2563EB" fill-opacity="0.2" stroke="#2563EB" stroke-width="1.5"/></svg>
+          PCI-DSS
+        </div>
+        <div class="badge-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2L2 5.5v5c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11v-5L10 2z" fill="#2563EB" fill-opacity="0.2" stroke="#2563EB" stroke-width="1.5"/></svg>
+          GLBA
+        </div>
+        <div class="badge-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2L2 5.5v5c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11v-5L10 2z" fill="#2563EB" fill-opacity="0.2" stroke="#2563EB" stroke-width="1.5"/></svg>
+          SOC 2
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PROBLEM / PAIN POINT SECTION
+  ========================================================= -->
+  <section class="problem-section" id="problem">
+    <div class="container problem-inner">
+      <div class="problem-stat-card">
+        <div class="stat-number">60<span class="stat-percent">%</span></div>
+        <p class="stat-desc">of small businesses close within 6 months of a data breach</p>
+      </div>
+      <div class="problem-content">
+        <div class="section-eyebrow">The Risk Is Real</div>
+        <h2 class="section-headline">Cybercriminals are targeting businesses just like yours.</h2>
+        <p>
+          Ransomware attacks on medical practices, law offices, and financial firms have skyrocketed.
+          Hackers specifically target SMBs because they assume you have weaker defenses than large corporations —
+          and often, they're right.
+        </p>
+        <p>
+          Are you confident that your patient records, client financial data, and legal documents are truly protected?
+          Or are you simply hoping no one is looking?
+        </p>
+        <p class="problem-cta-line">
+          <strong>Peace of mind is a strategy. Hope is not.</strong>
+        </p>
+        <a href="#contact" class="btn btn-primary">Get a Free Security Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CORE SERVICES SECTION
+  ========================================================= -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-headline">Professional Security Services, <br/>Built for Business Owners</h2>
+        <p class="section-sub">Every engagement is scoped to your specific regulatory environment and risk profile.</p>
+      </div>
+      <div class="services-grid">
+
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <rect width="36" height="36" rx="10" fill="#2563EB" fill-opacity="0.12"/>
+              <path d="M9 12h18M9 18h18M9 24h12" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="28" cy="26" r="5" fill="#0F172A" stroke="#2563EB" stroke-width="1.5"/>
+              <path d="M26 26l1.5 1.5L30 24" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Network Penetration Testing</h3>
+          <p>
+            We simulate real-world attacks on your internal and external infrastructure —
+            the same techniques threat actors use — to expose every exploitable weakness before they do.
+          </p>
+          <ul class="service-features">
+            <li>External &amp; internal network assessments</li>
+            <li>Firewall and access control review</li>
+            <li>Lateral movement simulation</li>
+            <li>Detailed remediation roadmap</li>
+          </ul>
+          <a href="#contact" class="service-link">Learn more &rarr;</a>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card service-card-featured">
+          <div class="featured-badge">Most Requested</div>
+          <div class="service-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <rect width="36" height="36" rx="10" fill="#2563EB" fill-opacity="0.12"/>
+              <rect x="8" y="10" width="20" height="14" rx="2" stroke="#2563EB" stroke-width="2"/>
+              <path d="M13 24v3M23 24v3M10 27h16" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+              <path d="M14 16l2 2 4-4" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Web Application Testing</h3>
+          <p>
+            Your client portals, practice management systems, and web apps are prime targets.
+            We test for OWASP Top 10 vulnerabilities and business-logic flaws that could expose your clients' data.
+          </p>
+          <ul class="service-features">
+            <li>OWASP Top 10 assessment</li>
+            <li>Authentication &amp; session security</li>
+            <li>API security review</li>
+            <li>Data exposure testing</li>
+          </ul>
+          <a href="#contact" class="service-link">Learn more &rarr;</a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <rect width="36" height="36" rx="10" fill="#2563EB" fill-opacity="0.12"/>
+              <path d="M18 8L10 11v7c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11v-7l-8-3z" stroke="#2563EB" stroke-width="2"/>
+              <path d="M14 18l2.5 2.5L22 15" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Compliance &amp; Vulnerability Audits</h3>
+          <p>
+            Pass your next HIPAA, FINRA, or PCI-DSS audit with confidence.
+            We identify misconfigurations, policy gaps, and technical deficiencies —
+            and give you a clear, prioritized fix list.
+          </p>
+          <ul class="service-features">
+            <li>HIPAA Security Rule assessment</li>
+            <li>FINRA / SEC cybersecurity review</li>
+            <li>PCI-DSS gap analysis</li>
+            <li>Executive compliance summary</li>
+          </ul>
+          <a href="#contact" class="service-link">Learn more &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PROCESS / HOW IT WORKS
+  ========================================================= -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Our Process</div>
+        <h2 class="section-headline">Four Steps From Vulnerability <br/>to Verified Security</h2>
+        <p class="section-sub">Transparent, structured, and built around your business — not technical jargon.</p>
+      </div>
+
+      <div class="process-timeline">
+        <div class="process-step" data-step="1">
+          <div class="step-marker">
+            <span class="step-number">01</span>
+          </div>
+          <div class="step-content">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M14 3L5 6.5v6c0 6.5 4.1 12.4 9 13.7 4.9-1.3 9-7.2 9-13.7v-6L14 3z" stroke="#2563EB" stroke-width="2"/>
+                <path d="M9 14l3 3 7-7" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Scoping &amp; Strategy</h3>
+            <p>
+              We take the time to understand your business, your regulatory obligations, and your highest-risk assets.
+              Together, we define a clear scope and rules of engagement tailored to your needs.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step" data-step="2">
+          <div class="step-marker">
+            <span class="step-number">02</span>
+          </div>
+          <div class="step-content">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="11" stroke="#2563EB" stroke-width="2"/>
+                <path d="M10 14l2.5 2.5L18 11" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Active Testing</h3>
+            <p>
+              Our certified ethical hackers safely simulate real attacks on your systems — without disrupting your operations.
+              Every technique is controlled, documented, and authorized.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step" data-step="3">
+          <div class="step-marker">
+            <span class="step-number">03</span>
+          </div>
+          <div class="step-content">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect x="5" y="4" width="18" height="21" rx="2" stroke="#2563EB" stroke-width="2"/>
+                <path d="M9 10h10M9 14h10M9 18h6" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Executive Reporting</h3>
+            <p>
+              You receive a clear, jargon-free report designed for business owners — not just your IT team.
+              Every finding is rated by business impact and paired with a specific, actionable fix.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step" data-step="4">
+          <div class="step-marker">
+            <span class="step-number">04</span>
+          </div>
+          <div class="step-content">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M7 14l4 4 10-10" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="14" cy="14" r="11" stroke="#2563EB" stroke-width="2" stroke-dasharray="3 3"/>
+              </svg>
+            </div>
+            <h3>Remediation Support</h3>
+            <p>
+              We don't just hand you a report and disappear. We work alongside your IT team to ensure every vulnerability
+              is patched and verified — giving you documented proof of compliance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHY CHOOSE US
+  ========================================================= -->
+  <section class="about-section" id="about">
+    <div class="container about-inner">
+      <div class="about-content">
+        <div class="section-eyebrow">Why Light Security</div>
+        <h2 class="section-headline">Built for Business Owners, <br/>Backed by Certified Experts</h2>
+        <p>
+          We're not a massive firm where you become ticket number 4,873. Light Security is a boutique cybersecurity
+          practice built specifically for Southwest Florida's professional community —
+          people who need real results, real accountability, and a partner who picks up the phone.
+        </p>
+
+        <div class="differentiators">
+          <div class="diff-item">
+            <div class="diff-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5.5v5c0 6.3 4.1 12.2 8 13.5 3.9-1.3 8-7.2 8-13.5v-5L12 2z" fill="#2563EB" fill-opacity="0.15" stroke="#2563EB" stroke-width="1.5"/><path d="M8 12l2.5 2.5L16 9" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <strong>Local &amp; Accountable</strong>
+              <p>We're your neighbors in Southwest Florida — not an overseas call center or a national chain. You'll always speak with the person who tested your systems.</p>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" fill="#2563EB" fill-opacity="0.15" stroke="#2563EB" stroke-width="1.5"/><path d="M7 12l3 3 7-7" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <strong>Reports for Decision-Makers</strong>
+              <p>Our deliverables include both a technical deep-dive and a plain-English executive summary built for business owners, practice managers, and compliance officers.</p>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#2563EB" fill-opacity="0.15" stroke="#2563EB" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <strong>Industry Certifications</strong>
+              <p>Our team holds OSCP, PNPT, and CompTIA Security+ certifications — the same credentials demanded by Fortune 500 security teams, now working for you.</p>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.2H22l-6.2 4.5 2.4 7.2L12 16.9l-6.2 4.8 2.4-7.2L2 9.2h7.6L12 2z" fill="#2563EB" fill-opacity="0.15" stroke="#2563EB" stroke-width="1.5"/></svg>
+            </div>
+            <div>
+              <strong>Regulatory Fluency</strong>
+              <p>We speak HIPAA, FINRA, PCI-DSS, and GLBA fluently — and translate those requirements into practical, achievable steps for your specific business.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-stats" aria-label="Key statistics">
+        <div class="stat-card">
+          <div class="stat-value">100<span>%</span></div>
+          <div class="stat-label">Client confidentiality &amp; NDA on every engagement</div>
+        </div>
+        <div class="stat-card stat-card-accent">
+          <div class="stat-value">48<span>hrs</span></div>
+          <div class="stat-label">Average time to deliver your executive summary</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">0<span>day</span></div>
+          <div class="stat-label">Operational disruption during testing</div>
+        </div>
+        <div class="stat-card stat-card-accent">
+          <div class="stat-value">SW<span>FL</span></div>
+          <div class="stat-label">Southwest Florida's dedicated security partner</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL CTA / LEAD CAPTURE
+  ========================================================= -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-content">
+          <div class="section-eyebrow eyebrow-light">Take Action Today</div>
+          <h2 class="cta-headline">
+            Don't wait for a breach to find out<br/>
+            <span class="cta-headline-accent">your network is vulnerable.</span>
+          </h2>
+          <p class="cta-sub">
+            Schedule a no-obligation security strategy call. In 30 minutes we'll identify your biggest compliance risks
+            and give you a clear roadmap to protect your business, your clients, and your reputation.
+          </p>
+          <ul class="cta-benefits">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#2563EB"/><path d="M5.5 9l2.5 2.5 5-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Free 30-minute security consultation
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#2563EB"/><path d="M5.5 9l2.5 2.5 5-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              No obligation, no high-pressure sales
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#2563EB"/><path d="M5.5 9l2.5 2.5 5-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Confidential &amp; covered by NDA
+            </li>
+          </ul>
+        </div>
+
+        <div class="cta-form-card">
+          <h3 class="form-title">Request Your Free Consultation</h3>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Full Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+              <span class="field-error" id="name-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Work Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="jane@yourpractice.com" required autocomplete="email" />
+              <span class="field-error" id="email-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Practice Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="company" name="company" placeholder="Naples Medical Group" required autocomplete="organization" />
+              <span class="field-error" id="company-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="industry">Industry <span aria-hidden="true">*</span></label>
+              <div class="select-wrapper">
+                <select id="industry" name="industry" required>
+                  <option value="" disabled selected>Select your industry</option>
+                  <option value="healthcare">Healthcare / Medical Practice</option>
+                  <option value="finance">Financial Services / Wealth Management</option>
+                  <option value="legal">Legal / Law Office</option>
+                  <option value="other">Other SMB</option>
+                </select>
+                <svg class="select-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="field-error" id="industry-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">What's your biggest security concern? <span class="optional">(optional)</span></label>
+              <textarea id="message" name="message" placeholder="E.g., we need to pass our annual HIPAA audit..." rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full btn-lg">
+              <span id="submit-text">Schedule My Free Strategy Call</span>
+              <svg id="submit-spinner" class="spinner hidden" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2" stroke-dasharray="22 44" stroke-linecap="round"/></svg>
+            </button>
+            <div class="form-success hidden" id="form-success" role="alert">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#10B981"/><path d="M7 12l3.5 3.5L17 9" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <strong>Thank you! We'll be in touch within one business day.</strong>
+                <p>Check your inbox for a confirmation email.</p>
+              </div>
+            </div>
+            <div class="form-error hidden" id="form-submit-error" role="alert">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#EF4444"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+              <div>
+                <strong>Something went wrong. Please try again or email us directly.</strong>
+              </div>
+            </div>
+            <p class="form-privacy">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1L2 3v4c0 3.5 2.4 6.8 5 7.5 2.6-.7 5-4 5-7.5V3L7 1z" stroke="#94A3B8" stroke-width="1.2"/></svg>
+              Your information is protected by NDA and never shared or sold.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" aria-label="Light Security Home">
+          <span class="logo-shield" aria-hidden="true">
+            <svg width="26" height="30" viewBox="0 0 32 36" fill="none">
+              <path d="M16 0L0 6v12c0 9.94 6.84 19.24 16 22 9.16-2.76 16-12.06 16-22V6L16 0z" fill="#2563EB"/>
+              <path d="M9 18l4.5 4.5L23 13" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="logo-text">Light<span class="logo-accent">Security</span></span>
+        </a>
+        <p class="footer-tagline">Southwest Florida's trusted penetration testing and cybersecurity partner for SMBs.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Network Penetration Testing</a></li>
+            <li><a href="#services">Web Application Testing</a></li>
+            <li><a href="#services">Compliance Audits</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Compliance</h4>
+          <ul>
+            <li><a href="#compliance">HIPAA</a></li>
+            <li><a href="#compliance">FINRA / SEC</a></li>
+            <li><a href="#compliance">PCI-DSS</a></li>
+            <li><a href="#compliance">GLBA</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; <span id="footer-year">2025</span> Light Security LLC. All rights reserved. Southwest Florida.</p>
+        <p class="footer-legal">
+          <a href="#contact">Privacy Policy</a>
+          <span aria-hidden="true">&bull;</span>
+          <a href="#contact">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
